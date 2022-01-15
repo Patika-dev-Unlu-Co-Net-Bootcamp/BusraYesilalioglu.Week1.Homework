@@ -157,6 +157,24 @@ namespace UnluCo.Week1.HomeWork.Controllers
 
         }
 
+        [HttpGet("List/{colon}/{orderby}")]
+        public IActionResult GetCatList(string colon="Ad",string orderby = "asc")
+        {
+            var cat = new List<Cats>();
+            if(colon=="Ad"&& orderby == "asc")
+            {
+                cat = CatsList.OrderBy(x => x.Ad).ToList();
+            }
+            else if(colon=="Ad"&& orderby == "desc")
+            {
+                cat = CatsList.OrderByDescending(x => x.Ad).ToList();
+            }
+            if (cat.Count == 0)
+            {
+                return NotFound("Liste Boş");
+            }
+            return Ok(cat);
+        }
 
     }
 }
