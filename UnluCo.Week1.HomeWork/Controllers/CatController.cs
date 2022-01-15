@@ -73,7 +73,7 @@ namespace UnluCo.Week1.HomeWork.Controllers
             }
         };
         [HttpGet("all")]
-       
+
 
         public List<Cats> GetCats()
         {
@@ -148,7 +148,7 @@ namespace UnluCo.Week1.HomeWork.Controllers
         public IActionResult DeleteCat(int id)
         {
             var cat = CatsList.SingleOrDefault(x => x.Id == id);
-            if(cat == null)
+            if (cat == null)
             {
                 return BadRequest();
             }
